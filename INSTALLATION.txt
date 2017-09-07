@@ -1,0 +1,43 @@
+#INSTALLATION
+1) Enable virtual environment
+2) pip install python-decouple && pip install django && pip install django_countries && pip install django-avatar && pip install easy_thumbnails && pip install sorl-thumbnail && pip install social-auth-app-django && pip install mysqlclient && pip install django-image-cropping && pip install python-social-auth && pip install pyjwkest
+
+#if pip install mysqlclient error
+sudo apt-get install python-mysqldb
+sudo apt-get install libmysqlclient-dev
+
+
+sudo apt-get install libapache2-mod-wsgi
+sudo apt install libapache2-mod-wsgi-py3
+
+#FOR MYSQL
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN about VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+ALTER TABLE django_accounts.auth_user MODIFY COLUMN first_name VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.auth_user MODIFY COLUMN last_name VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN bookgenre VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE django_accounts.accounts_profile MODIFY COLUMN bookname VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+colors
+edit profile -- orange
+edit book -- green
+change password -- red
+login page -- green
+signup -- azure
+email pending -- orange
+
+things to do
+
+
+
+
+404 error page
+
+
+sudo apt-get install python-dateutil
+pip install django-crontab
