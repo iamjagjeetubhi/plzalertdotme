@@ -4,6 +4,7 @@ from .models import Subscribers, Posts, EmailSent
 from datetime import datetime
 from pytz import timezone
 from django.core.mail import EmailMessage
+from decouple import config
 def my_scheduled_job():
     import facebook
     graph = facebook.GraphAPI(config('FACEBOOK_USER_TOKEN'))

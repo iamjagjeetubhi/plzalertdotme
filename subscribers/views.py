@@ -49,7 +49,7 @@ def subscriber(request):
     #last post id to whom email was sent
     last_email_post = EmailSent.objects.last()
     last_email_post = last_email_post.post_id 
-    print(last_email_post)
+   # print(last_email_post)
     #subscriber
 
 

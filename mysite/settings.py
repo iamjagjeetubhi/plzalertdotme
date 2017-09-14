@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 #staticfiles
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
@@ -44,7 +44,7 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 CRONJOBS = [
-    ('*/30 * * * *', 'subscribers.cron.my_scheduled_job')
+    ('*/15 * * * *', 'subscribers.cron.my_scheduled_job', '>> /tmp/scheduled_job.log'),
 ]
 
 # Application definition
