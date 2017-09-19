@@ -1,6 +1,5 @@
-# django-accounts
-Custom user profile model including views for sign-up, e-mail activation and profile management.
+# plzalert.me
+Notification app for T&P, GNDEC
 
-## Requirements:
-* django-avatar
-* django-countries
+## Coming soon
+SMS API
