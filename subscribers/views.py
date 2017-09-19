@@ -45,7 +45,7 @@ def subscriber(request):
     post_time = datetime_obj_pacific.strftime("%H:%M:%S(%Z)")
     #facebook post data
     message = post['feed']['data'][0]['message']
-
+    print(post_time)
     #last post id to whom email was sent
     last_email_post = EmailSent.objects.last()
     last_email_post = last_email_post.post_id 
@@ -59,7 +59,7 @@ def subscriber(request):
 
     last_entry = Posts.objects.last()
 
-    if not last_entry.post_id == post_id and not last_entry.created_time == post_time and not last_entry.created_date == post_date:
+    if not last_entry.post_id == post_id:
         Posts.objects.create(created_time = post_time, created_date = post_date, post_id = post_id, message = message)
         last_message = message
         last_post_date = post_date
