@@ -44,7 +44,7 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 CRONJOBS = [
-    ('*/15 * * * *', 'subscribers.cron.my_scheduled_job', '>> /tmp/scheduled_job.log'),
+    ('*/1 * * * *', 'subscribers.cron.my_scheduled_job', '>> /tmp/scheduled_job.log'),
 ]
 
 # Application definition
