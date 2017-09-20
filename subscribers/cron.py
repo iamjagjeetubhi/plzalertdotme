@@ -25,9 +25,9 @@ def my_scheduled_job():
 
     #last post id to whom email was sent
     last_email_post = EmailSent.objects.last()
-    last_email_post = last_email_post.post_id 
+    last_email_post = last_email_post.post_id
 
-    
+
     #subscriber
     subscribers = Subscribers.objects.all().values_list('email')
     last_entry = Posts.objects.last()
@@ -35,22 +35,22 @@ def my_scheduled_job():
         Posts.objects.create(created_time = post_time, created_date = post_date, post_id = post_id, message = message)
 
         if not last_email_post == post_id:
-	        for users in subscribers:
+            for users in subscribers:
 	            #for emailid in users:
-	            toemail = users[0]
-	            subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-	            msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
-	            email = EmailMessage(subject, msg_body, to=[toemail])
-	            email.send()
-	       	EmailSent.objects.create(post_id = post_id)
+                toemail = users[0]
+                subject = 'New post @TNP GNDEC '+post_date+' '+post_time
+                msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
+                email = EmailMessage(subject, msg_body, to=[toemail])
+                email.send()
+            EmailSent.objects.create(post_id = post_id)
 
     else:
-    	if not last_email_post == post_id:
-	        for users in subscribers:
+        if not last_email_post == post_id:
+            for users in subscribers:
 	            #for emailid in users:
-	            toemail = users[0]
-	            subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-	            msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
-	            email = EmailMessage(subject, msg_body, to=[toemail])
-	            email.send()
-	       	EmailSent.objects.create(post_id = post_id)
+                toemail = users[0]
+                subject = 'New post @TNP GNDEC '+post_date+' '+post_time
+                msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
+                email = EmailMessage(subject, msg_body, to=[toemail])
+                email.send()
+            EmailSent.objects.create(post_id = post_id)
