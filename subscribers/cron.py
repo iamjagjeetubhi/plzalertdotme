@@ -39,7 +39,7 @@ def my_scheduled_job():
 	            #for emailid in users:
                 toemail = users[0]
                 subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-                msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
+                msg_body = '*You are getting multiple emails because it is beta version of our app. Just bear with us.*\n'+' '+message+'\n \n' '*Team*''\n \n''*Jugadi Time*\n(https://jugaditi.me)'
                 email = EmailMessage(subject, msg_body, to=[toemail])
                 email.send()
             EmailSent.objects.create(post_id = post_id)
@@ -50,7 +50,7 @@ def my_scheduled_job():
 	            #for emailid in users:
                 toemail = users[0]
                 subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-                msg_body = 'Hey '+toemail+'\n'+' '+message+'\n Team https://plzalert.me'
+                msg_body = '*You are getting multiple emails because it is beta version of our app. Just bear with us.*\n'+' '+message+'\n \n' '*Team*''\n \n''*Jugadi Time*(https://jugaditi.me)'
                 email = EmailMessage(subject, msg_body, to=[toemail])
                 email.send()
             EmailSent.objects.create(post_id = post_id)
