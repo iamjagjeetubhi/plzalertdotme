@@ -212,8 +212,9 @@ $().ready(function(){
 
 
     swal({
-  title: 'Submit email to get alert!',
-  input: 'email',
+  title: 'Submit your WhatsApp Number',
+  input: 'tel',
+  inputPlaceholder: 'Please enter without +91',
   showCancelButton: true,
   confirmButtonText: 'Submit',
   showLoaderOnConfirm: true,
@@ -232,7 +233,7 @@ $().ready(function(){
             dataType: "json",
             success: function(resp){
             	if (email === resp.email) {
-			          reject('This email is already exist.')
+			          reject('This number is already exist.')
 			        } else {
 			          resolve()
 			        }
@@ -252,8 +253,8 @@ $().ready(function(){
 }).then(function (email) {
   swal({
     type: 'success',
-    title: 'Email alert enabled!',
-    html: 'Submitted email: ' + email
+    title: 'WhatsApp alert enabled!',
+    html: 'Submitted Number: ' + email
   })
 })
 </script>

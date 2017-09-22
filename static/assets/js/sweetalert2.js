@@ -936,14 +936,14 @@ var modalDependant = function modalDependant() {
       _extends(params, args[0]);
       params.extraParams = args[0].extraParams;
 
-      if (params.input === 'email' && params.inputValidator === null) {
-        params.inputValidator = function (email) {
+      if (params.input === 'tel' && params.inputValidator === null) {
+        params.inputValidator = function (tel) {
           return new Promise(function (resolve, reject) {
-            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (emailRegex.test(email)) {
+            var emailRegex = /^([7-9]{1})([0-9]{9})$/;
+            if (emailRegex.test(tel)) {
               resolve();
             } else {
-              reject('Invalid email address');
+              reject('Invalid mobile Number');
             }
           });
         };

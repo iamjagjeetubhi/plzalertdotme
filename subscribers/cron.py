@@ -5,6 +5,8 @@ from datetime import datetime
 from pytz import timezone
 from django.core.mail import EmailMessage
 from decouple import config
+import subprocess
+import os
 def my_scheduled_job():
     import facebook
     graph = facebook.GraphAPI(config('FACEBOOK_USER_TOKEN'))
@@ -36,21 +38,19 @@ def my_scheduled_job():
 
         if not last_email_post == post_id:
             for users in subscribers:
-	            #for emailid in users:
                 toemail = users[0]
-                subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-                msg_body = '*You are getting multiple emails because it is beta version of our app. Just bear with us.*\n'+' '+message+'\n \n' '*Team*''\n \n''*Jugadi Time*\n(https://jugaditi.me)'
-                email = EmailMessage(subject, msg_body, to=[toemail])
-                email.send()
+                mobile = "91"+toemail
+                config_file = os.path.abspath(".config")
+                print(mobile)
+                subprocess.call('yowsup-cli demos --config '+config_file+' --send "'+mobile+'" "*'+post_time+'* *'+post_date+'*\n\n'+message+'\n \n *Team* \n *Jugadi Time* \n https://jugaditi.me"', shell=True)
             EmailSent.objects.create(post_id = post_id)
 
     else:
         if not last_email_post == post_id:
             for users in subscribers:
-	            #for emailid in users:
                 toemail = users[0]
-                subject = 'New post @TNP GNDEC '+post_date+' '+post_time
-                msg_body = '*You are getting multiple emails because it is beta version of our app. Just bear with us.*\n'+' '+message+'\n \n' '*Team*''\n \n''*Jugadi Time*(https://jugaditi.me)'
-                email = EmailMessage(subject, msg_body, to=[toemail])
-                email.send()
+                mobile = "91"+toemail
+                config_file = os.path.abspath(".config")
+                print(mobile)
+                subprocess.call('yowsup-cli demos --config '+config_file+' --send "'+mobile+'" "*'+post_time+'* *'+post_date+'*\n\n'+message+'\n \n *Team* \n *Jugadi Time* \n https://jugaditi.me"', shell=True)
             EmailSent.objects.create(post_id = post_id)
